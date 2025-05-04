@@ -40,30 +40,37 @@
       background: #222;
       color: white;
       text-align: center;
-      padding: 12px;
+      padding: 10px 0;
       z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
 
     header h1 {
-      font-size: 1.5em;
+      font-size: 1.4em;
       margin-bottom: 5px;
     }
 
     nav {
       background: #333;
-      padding: 10px;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: white;
-      margin: 0 10px;
       text-decoration: none;
       font-size: 0.9em;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a.active {
+      background-color: #00bcd4;
+      border-radius: 4px;
     }
 
     .spacer {
@@ -95,9 +102,12 @@
         font-size: 1.2em;
       }
 
+      nav {
+        gap: 10px;
+      }
+
       nav a {
-        display: inline-block;
-        margin: 5px;
+        font-size: 0.85em;
       }
     }
   </style>
@@ -107,9 +117,9 @@
   <header>
     <h1>Portofolio Saya</h1>
     <nav>
-      <a href="#about">Tentang</a>
-      <a href="#projects">Proyek</a>
-      <a href="#contact">Kontak</a>
+      <a href="#about" id="link-about">Tentang</a>
+      <a href="#projects" id="link-projects">Proyek</a>
+      <a href="#contact" id="link-contact">Kontak</a>
     </nav>
   </header>
 
@@ -141,7 +151,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
+    // Fade-in konten
+    const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -150,7 +161,29 @@
     }, { threshold: 0.5 });
 
     document.querySelectorAll('.section-content').forEach(el => {
-      observer.observe(el);
+      fadeObserver.observe(el);
+    });
+
+    // Highlight menu aktif saat scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = {
+      about: document.getElementById("link-about"),
+      projects: document.getElementById("link-projects"),
+      contact: document.getElementById("link-contact")
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          Object.values(navLinks).forEach(link => link.classList.remove("active"));
+          navLinks[id].classList.add("active");
+        }
+      });
+    }, { threshold: 0.6 });
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
     });
   </script>
 
