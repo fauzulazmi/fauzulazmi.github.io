@@ -30,7 +30,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: #ffffff; /* Warna abu-abu terang untuk latar belakang */
+      background-color: #ffffff;
       transition: background 0.3s ease;
     }
 
@@ -40,23 +40,27 @@
       width: 100%;
       background: #222;
       color: white;
-      text-align: center;
-      padding: 10px 0;
       z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 0;
     }
 
     header h1 {
-      font-size: 1.4em;
-      margin-bottom: 5px;
+      font-size: 2em;
+      margin: 0;
+      padding: 15px 0;
     }
 
     nav {
-      background: #333;
-      padding: 8px;
+      background: #222;
+      padding: 5px;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 50px;
       flex-wrap: wrap;
     }
 
@@ -70,12 +74,12 @@
     }
 
     nav a.active {
-      background-color: #bcbcbc; /* Warna abu-abu terang saat menu aktif */
+      background-color: #bcbcbc;
       border-radius: 4px;
     }
 
     .spacer {
-      height: 90px; /* memberi jarak konten dari header */
+      height: 90px;
     }
 
     .section-content {
@@ -124,7 +128,7 @@
     </nav>
   </header>
 
-  <div class="spacer"></div> <!-- Memberi ruang agar konten tidak tertutup header -->
+  <div class="spacer"></div>
 
   <section id="about">
     <div class="section-content">
