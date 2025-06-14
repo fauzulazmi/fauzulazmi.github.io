@@ -47,6 +47,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0px 0;
 }
 
 .header-top {
@@ -88,7 +89,7 @@ nav a.active {
 }
 
 .spacer {
-  height: 90px;
+  height: 110px;
 }
 
 .section-content {
@@ -131,14 +132,7 @@ footer {
   .header-top {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2px;
-  }
-
-  #tanggal, #waktu {
-    font-size: 0.75em;
-    padding: 0 5px;
-    max-width: 100%;
-    word-break: break-word;
+    gap: 4px;
   }
 
   .section-content {
@@ -175,7 +169,7 @@ footer {
     <a href="#contact" id="link-contact">Kontak</a>
   </nav>
 </header><div class="spacer"></div>
-<div id="clock" style="padding: 10px; color: #ccc; font-size: 0.9em;"></div><section id="about">
+<section id="about">
   <div class="section-content">
     <h2>Tentang Saya</h2>
     <p>Saya seorang developer web yang senang membangun aplikasi interaktif dan responsif menggunakan HTML, CSS, dan JavaScript.</p>
@@ -188,11 +182,12 @@ footer {
 </section><section id="contact">
   <div class="section-content">
     <h2>Kontak</h2>
-    <p>Email: <a href="mailto:fauzulazmi28032000@gmail.co">fauzulazmi28032000@gmail.com</a></p>
+    <p>Email: <a href="mailto:fauzulazmi28032000@gmail.com">fauzulazmi28032000@gmail.com</a></p>
   </div>
 </section><footer>
-  &copy; 2025 Fauzul azmi. All Rights Reserved.
+  &copy; 2025 Fauzul Azmi. All Rights Reserved.
 </footer><script>
+  // Fade-in konten
   const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -205,6 +200,7 @@ footer {
     fadeObserver.observe(el);
   });
 
+  // Highlight menu aktif saat scroll
   const sections = document.querySelectorAll("section");
   const navLinks = {
     about: document.getElementById("link-about"),
@@ -260,9 +256,9 @@ footer {
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
+      elem.webkitRequestFullscreen(); // Safari
     } else if (elem.msRequestFullscreen) {
-      elem.msRequestFullscreen();
+      elem.msRequestFullscreen(); // IE11
     }
 
     document.getElementById("fullscreenPrompt").style.display = "none";
