@@ -228,5 +228,29 @@
   setInterval(updateClock, 1000);
   updateClock();
 </script>
+  <script>
+  function openFullscreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen(); // Safari
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen(); // IE11
+    }
+  }
+
+  // Jalankan saat halaman selesai dimuat
+  window.onload = function () {
+    const confirmFullscreen = confirm("Ingin membuka dalam mode full screen?");
+    
+    if (confirmFullscreen) {
+      openFullscreen();
+    } else {
+      // Kosongkan halaman atau arahkan keluar
+      document.body.innerHTML = "<h2 style='text-align:center; padding-top: 50px;'>Akses dibatalkan.</h2>";
+    }
+  }
+</script>
 </body>
 </html>
