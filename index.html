@@ -138,7 +138,7 @@
   align-items: center;
   z-index: 9999;
 ">
-  <h2 style="margin-bottom: 20px;">Untuk membuka website harus dalam mode full screen !</h2>
+  <h2 style="margin-bottom: 20px;">Mode full screen ?</h2>
   <div>
     <button onclick="proceedFullscreen()" style="margin: 5px; padding: 10px 20px;">Ya</button>
     <button onclick="cancelAccess()" style="margin: 5px; padding: 10px 20px;">Tidak</button>
@@ -146,9 +146,12 @@
 </div>
   
   <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-    <div id="clock" style="padding: 5px 15px; color: #ccc; font-size: 0.9em; text-align: left;"></div>
+<div id="tanggal"></div>
+    <div id="waktu"></div>
   </div>
+
   <h1>Fauzul Azmi</h1>
+
   <nav>
     <a href="#about" id="link-about">Tentang</a>
     <a href="#projects" id="link-projects">Proyek</a>
@@ -220,10 +223,10 @@
     });
   </script>
 <script>
-  function updateClock() {
+  function updateWaktuDanTanggal() {
     const now = new Date();
 
-    const optionsDate = {
+    const tanggalOptions = {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
@@ -231,22 +234,22 @@
       timeZone: 'Asia/Jakarta'
     };
 
-    const optionsTime = {
+    const waktuOptions = {
       hour: '2-digit',
       minute: '2-digit',
-      second: '2-digit',
       hour12: false,
       timeZone: 'Asia/Jakarta'
     };
 
-    const dateStr = now.toLocaleDateString('id-ID', optionsDate); // contoh: Sabtu, 14 Juni 2025
-    const timeStr = now.toLocaleTimeString('id-ID', optionsTime); // contoh: 14:30:45
+    const tanggalStr = now.toLocaleDateString('id-ID', tanggalOptions);
+    const waktuStr = now.toLocaleTimeString('id-ID', waktuOptions);
 
-    document.getElementById('clock').textContent = `${dateStr} - ${timeStr}`;
+    document.getElementById('tanggal').textContent = tanggalStr;
+    document.getElementById('waktu').textContent = waktuStr;
   }
 
-  setInterval(updateClock, 1000);
-  updateClock();
+  setInterval(updateWaktuDanTanggal, 1000);
+  updateWaktuDanTanggal();
 </script>
 <script>
   function proceedFullscreen() {
