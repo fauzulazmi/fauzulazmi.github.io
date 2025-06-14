@@ -200,19 +200,31 @@
 <script>
   function updateClock() {
     const now = new Date();
-    const options = {
+
+    const optionsDate = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'Asia/Jakarta'
+    };
+
+    const optionsTime = {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
       hour12: false,
-      timeZone: 'Asia/Jakarta' // Ganti sesuai zona waktu kamu
+      timeZone: 'Asia/Jakarta'
     };
-    const timeString = now.toLocaleTimeString('id-ID', options);
-    document.getElementById('clock').textContent = `Jam sekarang: ${timeString}`;
+
+    const dateStr = now.toLocaleDateString('id-ID', optionsDate); // contoh: Sabtu, 14 Juni 2025
+    const timeStr = now.toLocaleTimeString('id-ID', optionsTime); // contoh: 14:30:45
+
+    document.getElementById('clock').textContent = `${dateStr} - ${timeStr}`;
   }
 
   setInterval(updateClock, 1000);
-  updateClock(); // panggil sekali saat halaman pertama kali dibuka
+  updateClock();
 </script>
 </body>
 </html>
