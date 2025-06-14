@@ -1,9 +1,7 @@
 <!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portofolio</title>
   <style>
     * {
@@ -51,10 +49,19 @@ header {
   justify-content: center;
 }
 
+.header-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  font-size: 0.9em;
+}
+
 header h1 {
   font-size: 2em;
   margin: 0;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 
 nav {
@@ -81,7 +88,7 @@ nav a.active {
 }
 
 .spacer {
-  height: 110px;
+  height: 90px;
 }
 
 .section-content {
@@ -121,19 +128,17 @@ footer {
     padding: 4px 8px;
   }
 
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
   #tanggal, #waktu {
     font-size: 0.75em;
     padding: 0 5px;
-    max-width: 50%;
+    max-width: 100%;
     word-break: break-word;
-  }
-
-  header > div {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2px;
-    padding: 5px 10px;
   }
 
   .section-content {
@@ -143,104 +148,128 @@ footer {
 
   </style>
 </head>
-<body>
-  <header>
-    <div id="fullscreenPrompt" style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.85);color: white;display: flex;flex-direction: column;justify-content: center;align-items: center;z-index: 9999;">
-      <h2 style="margin-bottom: 20px;">Mode full screen?</h2>
-      <div>
-        <button onclick="proceedFullscreen()" style="margin: 5px; padding: 10px 20px;">Ya</button>
-        <button onclick="cancelAccess()" style="margin: 5px; padding: 10px 20px;">Tidak</button>
-      </div>
-    </div><div style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 5px 15px; flex-wrap: wrap;">
-  <div id="tanggal"></div>
-  <div id="waktu"></div>
-</div>
-
-<h1>Fauzul Azmi</h1>
-
-<nav>
-  <a href="#about" id="link-about">Tentang</a>
-  <a href="#projects" id="link-projects">Proyek</a>
-  <a href="#contact" id="link-contact">Kontak</a>
-</nav>
-
-  </header>  <div class="spacer"></div>  <section id="about">
-    <div class="section-content">
-      <h2>Tentang Saya</h2>
-      <p>Saya seorang developer web yang senang membangun aplikasi interaktif dan responsif menggunakan HTML, CSS, dan JavaScript.</p>
-    </div>
-  </section>  <section id="projects">
-    <div class="section-content">
-      <h2>Proyek</h2>
-      <p>Berikut beberapa proyek web yang pernah saya kerjakan dengan teknologi modern dan desain responsif.</p>
-    </div>
-  </section>  <section id="contact">
-    <div class="section-content">
-      <h2>Kontak</h2>
-      <p>Email: <a href="mailto:fauzulazmi28032000@gmail.com">fauzulazmi28032000@gmail.com</a></p>
-    </div>
-  </section>  <footer>
-    &copy; 2025 Fauzul Azmi. All Rights Reserved.
-  </footer>  <script>
-    function proceedFullscreen() {
-      const elem = document.documentElement;
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen();
+<body><div id="fullscreenPrompt" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+">
+  <h2 style="margin-bottom: 20px;">Mode full screen ?</h2>
+  <div>
+    <button onclick="proceedFullscreen()" style="margin: 5px; padding: 10px 20px;">Ya</button>
+    <button onclick="cancelAccess()" style="margin: 5px; padding: 10px 20px;">Tidak</button>
+  </div>
+</div><header>
+  <div class="header-top">
+    <div id="tanggal"></div>
+    <div id="waktu"></div>
+  </div>  <h1>Fauzul Azmi</h1>  <nav>
+    <a href="#about" id="link-about">Tentang</a>
+    <a href="#projects" id="link-projects">Proyek</a>
+    <a href="#contact" id="link-contact">Kontak</a>
+  </nav>
+</header><div class="spacer"></div>
+<div id="clock" style="padding: 10px; color: #ccc; font-size: 0.9em;"></div><section id="about">
+  <div class="section-content">
+    <h2>Tentang Saya</h2>
+    <p>Saya seorang developer web yang senang membangun aplikasi interaktif dan responsif menggunakan HTML, CSS, dan JavaScript.</p>
+  </div>
+</section><section id="projects">
+  <div class="section-content">
+    <h2>Proyek</h2>
+    <p>Berikut beberapa proyek web yang pernah saya kerjakan dengan teknologi modern dan desain responsif.</p>
+  </div>
+</section><section id="contact">
+  <div class="section-content">
+    <h2>Kontak</h2>
+    <p>Email: <a href="mailto:fauzulazmi28032000@gmail.co">fauzulazmi28032000@gmail.com</a></p>
+  </div>
+</section><footer>
+  &copy; 2025 Fauzul azmi. All Rights Reserved.
+</footer><script>
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
-      document.getElementById("fullscreenPrompt").style.display = "none";
-    }
-
-    function cancelAccess() {
-      document.body.innerHTML = "<h2 style='text-align:center; padding-top: 50px;'>Akses dibatalkan oleh pengguna.</h2>";
-    }
-
-    function updateWaktuDanTanggal() {
-      const now = new Date();
-      const tanggalOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Jakarta' };
-      const waktuOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' };
-      document.getElementById('tanggal').textContent = now.toLocaleDateString('id-ID', tanggalOptions);
-      document.getElementById('waktu').textContent = now.toLocaleTimeString('id-ID', waktuOptions);
-    }
-    setInterval(updateWaktuDanTanggal, 1000);
-    updateWaktuDanTanggal();
-
-    // Fade-in konten
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.section-content').forEach(el => {
-      fadeObserver.observe(el);
     });
+  }, { threshold: 0.5 });
 
-    // Highlight menu aktif saat scroll
-    const sections = document.querySelectorAll("section");
-    const navLinks = {
-      about: document.getElementById("link-about"),
-      projects: document.getElementById("link-projects"),
-      contact: document.getElementById("link-contact")
+  document.querySelectorAll('.section-content').forEach(el => {
+    fadeObserver.observe(el);
+  });
+
+  const sections = document.querySelectorAll("section");
+  const navLinks = {
+    about: document.getElementById("link-about"),
+    projects: document.getElementById("link-projects"),
+    contact: document.getElementById("link-contact")
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        Object.values(navLinks).forEach(link => link.classList.remove("active"));
+        navLinks[id].classList.add("active");
+      }
+    });
+  }, { threshold: 0.6 });
+
+  sections.forEach(section => {
+    sectionObserver.observe(section);
+  });
+</script><script>
+  function updateWaktuDanTanggal() {
+    const now = new Date();
+
+    const tanggalOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'Asia/Jakarta'
     };
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          Object.values(navLinks).forEach(link => link.classList.remove("active"));
-          navLinks[id].classList.add("active");
-        }
-      });
-    }, { threshold: 0.6 });
+    const waktuOptions = {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone: 'Asia/Jakarta'
+    };
 
-    sections.forEach(section => {
-      sectionObserver.observe(section);
-    });
-  </script></body>
+    const tanggalStr = now.toLocaleDateString('id-ID', tanggalOptions);
+    const waktuStr = now.toLocaleTimeString('id-ID', waktuOptions);
+
+    document.getElementById('tanggal').textContent = tanggalStr;
+    document.getElementById('waktu').textContent = waktuStr;
+  }
+
+  setInterval(updateWaktuDanTanggal, 1000);
+  updateWaktuDanTanggal();
+</script><script>
+  function proceedFullscreen() {
+    const elem = document.documentElement;
+
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    }
+
+    document.getElementById("fullscreenPrompt").style.display = "none";
+  }
+
+  function cancelAccess() {
+    document.body.innerHTML = "<h2 style='text-align:center; padding-top: 50px;'>Akses dibatalkan oleh pengguna.</h2>";
+  }
+</script></body>
 </html>
