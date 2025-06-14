@@ -127,6 +127,7 @@
   <header>
     <h1>Fauzul Azmi</h1>
     <nav>
+      <div id="clock" style="padding: 10px; color: #ccc; font-size: 0.9em;"></div>
       <a href="#about" id="link-about">Tentang</a>
       <a href="#projects" id="link-projects">Proyek</a>
       <a href="#contact" id="link-contact">Kontak</a>
@@ -196,6 +197,22 @@
       sectionObserver.observe(section);
     });
   </script>
+<script>
+  function updateClock() {
+    const now = new Date();
+    const options = {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+      timeZone: 'Asia/Jakarta' // Ganti sesuai zona waktu kamu
+    };
+    const timeString = now.toLocaleTimeString('id-ID', options);
+    document.getElementById('clock').textContent = `Jam sekarang: ${timeString}`;
+  }
 
+  setInterval(updateClock, 1000);
+  updateClock(); // panggil sekali saat halaman pertama kali dibuka
+</script>
 </body>
 </html>
